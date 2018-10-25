@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>移动端rem自适应</title>
+	<style type="text/css">
+		ol,ul,li{
+			list-style: none;margin: 0;padding: 0;
+		}
+		body{
+			margin:0;padding:0;
+		}
+		.nav{
+			font-size: 1rem;
+			text-align: center;
+		}
+		.image{
+			margin-top:1rem;
+		}
+		.image>img{
+			width:9.99rem;
+			height:8rem;
+			float: left;
+		}
+		.baseimage{
+			margin-top: 0.5rem;
+			/*图片底部的空白间隙*/
+			/*line-height: 0px;*/
+			/*font-size: 0px;*/
+		}
+		.baseimage>img{
+			width:12rem;
+			height: 10rem;
+			/*图片底部的空白间隙*/
+			vertical-align: bottom;
+			/*display: block;*/
+
+		}
+		.header{
+			margin-top: 1rem;
+			/*zoom:1;*/
+		}
+/*		.header :after{
+			清除浮动的高大上方法
+			clear:both;
+			content：'.';
+			display: block;
+			width:0;
+			height: 0;
+			visibility: hidden;
+		}*/
+		.header>ul{
+			overflow: auto;
+			zoom:1;
+		}
+		.header>ul>li{
+			float:left;
+			margin-left: 1rem;
+		}
+		.header>ul{
+			margin-left: 1.8rem;
+		}
+		.login{
+			width:20rem;
+			height: 15rem;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<div class="nav">我的移动端自适应</div>
+		<div class="image">
+			<img src="./image/1.jpg" alt="">
+			<img src="./image/2.jpg" alt="">
+		</div>
+		<div class="baseimage">
+			<img src="./image/1.jpg" alt="">
+			我是海贼王
+		</div>
+		<span>王下七武海之最强战斗</span>
+		<div class="header">
+			<ul>
+				<li>路飞</li>
+				<li>索隆</li>
+				<li>山治</li>
+				<li>娜美</li>
+				<li>罗宾</li>
+			</ul>
+		</div>
+		<div id="login_frame">
+			<p id="image_logo"><img src=".image/1.jpg" alt=""></p>
+			<form action="post" action="login.js">
+				<p><label class="label_input">用户名</label><input type="text" id="username" class="text_field"/></p>
+				<p><label class="label_input">密码</label><input type="text" id="password" class="text_field"/></p>
+
+				<div id="login_control">
+					<input type="button" id="btn_login" value="登录" onclick="login()"/>
+					<a href="forget_pwd.html" id="forget_pwd">忘记密码？</a>
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+
+	<script>
+		(function (doc, win) {
+			  var docEl = doc.documentElement,
+			  resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+			  recalc = function () {
+			  var clientWidth = docEl.clientWidth;
+			  if (!clientWidth) return;
+			  docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+			};
+			if (!doc.addEventListener) return;
+			  win.addEventListener(resizeEvt, recalc, false);
+			  doc.addEventListener('DOMContentLoaded', recalc, false);
+			})(document, window);
+	</script>
+</body>
+</html>
